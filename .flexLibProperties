@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<flexLibProperties includeAllClasses="true" useMultiPlatformConfig="false" version="3">
+  <includeClasses>
+    <classEntry path="cybs.web.Ajax"/>
+    <classEntry path="cybs.loading.PreloaderBase"/>
+    <classEntry path="cybs.util.Util"/>
+    <classEntry path="cybs.util.DisplayUtil"/>
+    <classEntry path="cybs.ui.FullScreenLoading"/>
+    <classEntry path="cybs.util.StringUtil"/>
+    <classEntry path="cybs.ui.NumberComponent"/>
+    <classEntry path="cybs.page.PageDatas"/>
+    <classEntry path="cybs.page.PageComponentEvent"/>
+    <classEntry path="cybs.page.PageComponent"/>
+    <classEntry path="cybs.ui.modaldialog.ModalDialogGrayBackground"/>
+    <classEntry path="cybs.ui.modaldialog.ModalDialogContainer"/>
+    <classEntry path="cybs.ui.modaldialog.ModalDialogManager"/>
+    <classEntry path="cybs.Copyright"/>
+    <classEntry path="cybs.effect.fade.FadeInEffect"/>
+    <classEntry path="cybs.effect.fade.FadeOutEffect"/>
+    <classEntry path="cybs.ui.PanelEffect"/>
+    <classEntry path="cybs.util.AlignType"/>
+    <classEntry path="cybs.storage.LocalStorageManager"/>
+    <classEntry path="cybs.storage.LocalStorageInfo"/>
+    <classEntry path="cybs.effect.popup.PopDownEffect"/>
+    <classEntry path="cybs.effect.popup.PopUpEffect"/>
+  </includeClasses>
+  <includeResources/>
+  <namespaceManifests/>
+</flexLibProperties>
