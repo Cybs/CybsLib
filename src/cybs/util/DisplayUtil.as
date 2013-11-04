@@ -7,7 +7,9 @@ package cybs.util {
 	import flash.display.PixelSnapping;
 	import flash.display.SimpleButton;
 	import flash.display.Sprite;
+	import flash.filters.BitmapFilterQuality;
 	import flash.filters.ColorMatrixFilter;
+	import flash.filters.GlowFilter;
 	import flash.geom.Matrix;
 	import flash.geom.Point;
 	import flash.geom.Rectangle;
@@ -345,6 +347,35 @@ package cybs.util {
 				scale = height / target.height;
 			}
 			target.scaleX = target.scaleY = scale;
+		}
+		
+		/**
+		 * 设置亮度
+		 * @param target
+		 * @param brightness 亮度值(0是不变，正数是变亮，负数是变暗)
+		 * 
+		 */
+		public static function setBright(target:DisplayObject, brightness:int) : void
+		{
+			var arr:Array = new Array();
+			arr = arr.concat([1, 0, 0, 0, brightness]);
+			arr = arr.concat([0, 1, 0, 0, brightness]);
+			arr = arr.concat([0, 0, 1, 0, brightness]);
+			arr = arr.concat([0, 0, 0, 1, 0]);
+			applyFilter(target, arr);
+		}
+		
+		/**
+		 * 发光滤镜
+		 * @param target
+		 * 
+		 */
+		public static function applyGlow(target:DisplayObject, color:uint = 0xFF0000, alpha:Number = 1,  blurX:Number=6.0, blurY:Number=6.0, strength:Number=2, quality:int=BitmapFilterQuality.MEDIUM, inner:Boolean=false, knockout:Boolean=false) : void
+		{
+			var filter:GlowFilter = new GlowFilter(color, alpha, blurX, blurY, strength, quality, inner, knockout);
+			var arr:Array = new Array();
+			arr.push(filter);
+			target.filters = arr;
 		}
 	}
 }
