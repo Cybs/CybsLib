@@ -18,13 +18,16 @@ package cybs.ui.modaldialog {
 		private var _window:DisplayObject;
 		private var _width:int;
 		private var _isGrayBackground:Boolean;
+		private var _alpha:Number;
 
-		function ModalDialogContainer(dialog:DisplayObject, isGray:Boolean, alignType:int) {
+		function ModalDialogContainer(dialog:DisplayObject, isGray:Boolean, alignType:int, alpha:Number) {
 			this._window = dialog;
 			this._isGrayBackground = isGray;
 			this._alignType = alignType;
+			this._alpha = alpha;
 			if (isGray) {
 				ModalDialogGrayBackground.instance.removeGrayBackground();
+				ModalDialogGrayBackground.instance.alpha = alpha;
 				this.addChild(ModalDialogGrayBackground.instance.background);
 			}
 			ModalDialogManager.getInstance().stage.addEventListener(Event.RESIZE, this.onResize);

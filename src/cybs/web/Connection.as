@@ -144,14 +144,22 @@ package cybs.web {
 			this.errorCallback = errorCallback;
 			this.isParseResult = parseResult;
 			var request:URLRequest = new URLRequest();
-			request.url = this.url;
-			var variables:URLVariables = new URLVariables();
+			//处理本来已有参数的url
+			var index:int = url.indexOf("?");
+			request.url = index == -1 ? url : url.substring(0, index);
+			trace(request.url);
+			var paramsStr:String = index == -1 ? null : url.substr(index + 1);
 			trace("请求方式：" + method);
 			request.method = method;
 //			setHeaders(request);
 			if (!params) {
 				params = new URLVariables();
 			}
+			var urlParams:URLVariables = paramsStr ? new URLVariables(paramsStr) : null;
+			for (var key:String in urlParams) {
+				params[key] = urlParams[key];
+			}
+			
 			request.data = this.encodeParameter(params, cookie);
 			trace("发送的数据:" + request.data);
 			addTimeStamp(request.data as URLVariables);

@@ -101,7 +101,7 @@ package cybs.ui.modaldialog {
 			}
 		}
 
-		public function addModalDialog(dialog:DisplayObject, isGray:Boolean = true, effect:int = PanelEffect.FADE, alignType:int = 4, x:int = 0, y:int = 0, width:int = 0, height:int = 0):Boolean {
+		public function addModalDialog(dialog:DisplayObject, isGray:Boolean = true, effect:int = PanelEffect.FADE, alignType:int = 4, x:int = 0, y:int = 0, width:int = 0, height:int = 0, alpha:Number = 0.3):Boolean {
 			var container:ModalDialogContainer
 			for each (container in this._windowTable) {
 				if (container.contains(dialog)) {
@@ -116,7 +116,7 @@ package cybs.ui.modaldialog {
 				dialog.x = x;
 				dialog.y = y;
 			}
-			container = new ModalDialogContainer(dialog, isGray, alignType);
+			container = new ModalDialogContainer(dialog, isGray, alignType, alpha);
 			_stage.addChild(container);
 			container.alignWindow(width, height);
 			this._windowTable.push(container);
